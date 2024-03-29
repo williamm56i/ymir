@@ -12,3 +12,10 @@ server:
     context-path: /ymir
 mybatis:
   mapper-locations: classpath:/sqlmap/*.xml
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+  webjars:
+    prefix: ""
