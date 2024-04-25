@@ -24,6 +24,12 @@ public class SystemController {
         return ResponseEntity.ok(systemService.getTest(name));
     }
 
+    @Operation(summary = "生成JWT")
+    @GetMapping("/generateToken")
+    public String generateToken(@RequestParam("name") String username) {
+        return systemService.generateToken(username);
+    }
+
     @Operation(summary = "取得系統參數")
     @GetMapping("/getSysCodeAll")
     public ResponseEntity<List<SysCode>> getSysCodeAll() {

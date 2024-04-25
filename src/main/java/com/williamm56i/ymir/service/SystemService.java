@@ -8,5 +8,7 @@ public interface SystemService {
 
     String getTest(String name);
 
+    String generateToken(String username);
+
     List<SysCode> getSysCodeAll();
 }
