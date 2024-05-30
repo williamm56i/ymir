@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.williamm56i.ymir.persistence.dao.SysUserDao">
+    <resultMap id="BaseResultMap" type="com.williamm56i.ymir.persistence.vo.SysUser">
+        <id column="ACCOUNT" property="account" jdbcType="VARCHAR" />
+        <id column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+        <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+        <result column="CREATE_ID" property="createId" jdbcType="VARCHAR" />
+        <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+        <result column="UPDATE_ID" property="updateId" jdbcType="VARCHAR" />
+        <result column="UPDATE_DATE" property="updateDate" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        ACCOUNT, USER_NAME, EMAIL, CREATE_ID, CREATE_DATE, UPDATE_ID, UPDATE_DATE
+    </sql>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+            <include refid="Base_Column_List" />
+        from SYS_USER
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+        select
+            <include refid="Base_Column_List" />
+        from SYS_USER
+        <where>
+            ACCOUNT = #{account,jdbcType=VARCHAR}
+        </where>
+    </select>
+</mapper>

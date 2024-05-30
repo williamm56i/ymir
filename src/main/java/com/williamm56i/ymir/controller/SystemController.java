@@ -26,8 +26,8 @@ public class SystemController {
 
     @Operation(summary = "生成JWT")
     @GetMapping("/generateToken")
-    public String generateToken(@RequestParam("name") String username) {
-        return systemService.generateToken(username);
+    public String generateToken(@RequestParam("account") String account) {
+        return systemService.generateToken(account);
     }
 
     @Operation(summary = "取得系統參數")

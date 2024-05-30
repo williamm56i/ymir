@@ -1,12 +1,14 @@
 package com.williamm56i.ymir.security;
 
 import com.williamm56i.ymir.utils.JwtUtils;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Objects;
 
@@ -15,13 +17,11 @@ public class YmirUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String jwt) throws UsernameNotFoundException {
-        return JwtUtils.parseJwt(jwt);
-    }
-
-    private UserDetails decode(String jwt) {
-        String account = jwt;
-        String password = "123";
-        return new YmirUserDetails(account, password, null);
+        String account = JwtUtils.parseJwt(jwt);
+        if (account == null) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+        }
+        return new YmirUserDetails(account, null, null);
     }
 
     public UserDetails getUserDetails() {
