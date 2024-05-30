@@ -1,11 +1,8 @@
 package com.williamm56i.ymir.utils;
 
-import com.williamm56i.ymir.security.YmirUserDetails;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import java.security.Key;
 import java.util.Date;
@@ -23,11 +20,6 @@ public class JwtUtils {
                 .setSubject(username)
                 .setExpiration(getExpireDate());
         return builder.compact();
-    }
-
-    public static boolean validateToken(String jwt) {
-        // TODO 驗證時效性
-        return true;
     }
 
     public static String parseJwt(String jwt) {
