@@ -1,5 +1,6 @@
 package com.williamm56i.ymir.controller;
 
+import com.williamm56i.ymir.annotation.Pims;
 import com.williamm56i.ymir.persistence.vo.SysCode;
 import com.williamm56i.ymir.service.SystemService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -18,6 +19,7 @@ public class SystemController {
     @Autowired
     SystemService systemService;
 
+    @Pims
     @Operation(summary = "GET測試")
     @GetMapping("/test")
     public ResponseEntity<String> getTest(@RequestParam("name") String name) {
