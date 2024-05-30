@@ -30,6 +30,12 @@ public class SystemController {
         return systemService.generateToken(account);
     }
 
+    @Operation(summary = "生成JWT")
+    @PostMapping("/refreshToken")
+    public String refreshToken(@RequestBody String jwt) {
+        return systemService.refreshToken(jwt);
+    }
+
     @Operation(summary = "取得系統參數")
     @GetMapping("/getSysCodeAll")
     public ResponseEntity<List<SysCode>> getSysCodeAll() {

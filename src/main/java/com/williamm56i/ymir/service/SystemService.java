@@ -10,5 +10,7 @@ public interface SystemService {
 
     String generateToken(String account);
 
+    String refreshToken(String jwt);
+
     List<SysCode> getSysCodeAll();
 }

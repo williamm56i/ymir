@@ -22,6 +22,11 @@ public class JwtUtils {
         return builder.compact();
     }
 
+    public static String refresh(String jwt) {
+        String username = parseJwt(jwt);
+        return generate(username);
+    }
+
     public static String parseJwt(String jwt) {
         Key secretKey = generalKey();
         try {

@@ -37,6 +37,11 @@ public class SystemServiceImpl implements SystemService {
     }
 
     @Override
+    public String refreshToken(String jwt) {
+        return JwtUtils.refresh(jwt);
+    }
+
+    @Override
     public List<SysCode> getSysCodeAll() {
         return sysCodeDao.selectAll();
     }
