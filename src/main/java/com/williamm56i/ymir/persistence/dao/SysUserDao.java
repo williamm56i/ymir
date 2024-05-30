@@ -12,4 +12,12 @@ public interface SysUserDao {
     List<SysUser> selectAll();
 
     SysUser selectByPrimaryKey(@Param("account") String account);
+
+    List<SysUser> selectByConditions(@Param("account") String account, @Param("userName") String userName, @Param("email") String email);
+
+    int insertSelective(SysUser sysUser);
+
+    int deleteByPrimaryKey(@Param("account") String account);
+
+    int updateByPrimaryKeySelective(SysUser sysUser);
 }

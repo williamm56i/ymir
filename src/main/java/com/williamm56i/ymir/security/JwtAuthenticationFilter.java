@@ -1,6 +1,5 @@
 package com.williamm56i.ymir.security;
 
-import com.williamm56i.ymir.utils.JwtUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

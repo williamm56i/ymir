@@ -14,6 +14,7 @@ public class YmirExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public ResponseEntity<String> exceptionHandler(Exception e) {
+        e.printStackTrace();
         log.error("ExceptionHandler: {}", e.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
     }
