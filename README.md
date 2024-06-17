@@ -17,3 +17,17 @@
 ### 版本資訊
 * 0.0.1-SNAPSHOT
   * 初版
+
+### 執行
+* 打包jar
+```
+mvn package
+```
+* build image
+```
+docker build --tag ymir:latest .
+```
+* run 
+```
+docker run --name YMIR -p 8080:8080 -d ymir:latest
+```
