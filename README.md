@@ -21,7 +21,7 @@
 ### 執行
 * 打包jar
 ```
-mvn package
+mvn install
 ```
 * build image
 ```
